@@ -8,6 +8,7 @@
 #endif
 
 #include <string.h>
+#include <malloc.h>
 
 #include "char.h"
 #include "rs-common.h"
