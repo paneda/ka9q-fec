@@ -12,11 +12,11 @@ set(PROJECT_MAIN_SRCS
 )
 
  
-add_library(${PROJECT_NAME} SHARED ${PROJECT_MAIN_SRCS})
+add_library(${PROJECT_NAME} STATIC ${PROJECT_MAIN_SRCS})
 
 ### OS specific stuff ###
 if(NOT WIN32)
-	install(TARGETS ${PROJECT_NAME} LIBRARY DESTINATION lib)
+	install(TARGETS ${PROJECT_NAME} ARCHIVE DESTINATION lib)
 	install(DIRECTORY ../include/ DESTINATION include/${PROJECT_NAME})
 endif()
 #########################
