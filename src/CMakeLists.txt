@@ -8,6 +8,7 @@ set(CMAKE_BUILD_TYPE Release)
 set(PROJECT_MAIN_SRCS 
 	${CMAKE_CURRENT_SOURCE_DIR}/decode_rs_char.c
 	${CMAKE_CURRENT_SOURCE_DIR}/encode_rs_char.c
+	${CMAKE_CURRENT_SOURCE_DIR}/init_rs_char.c
 )
 
  
