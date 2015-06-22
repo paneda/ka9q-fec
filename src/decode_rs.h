@@ -72,10 +72,15 @@
   int deg_lambda, el, deg_omega;
   int i, j, r,k;
   data_t u,q,tmp,num1,num2,den,discr_r;
-  data_t lambda[NROOTS+1], s[NROOTS];	/* Err+Eras Locator poly
-					 * and syndrome poly */
-  data_t b[NROOTS+1], t[NROOTS+1], omega[NROOTS+1];
-  data_t root[NROOTS], reg[NROOTS+1], loc[NROOTS];
+  data_t* lambda = malloc(sizeof(data_t)*(NROOTS + 1)); /* Err+Eras Locator poly */
+  data_t* s = malloc(sizeof(data_t)*NROOTS); /* and syndrome poly */
+					 
+  data_t* b = malloc(sizeof(data_t)*(NROOTS + 1));
+  data_t* t = malloc(sizeof(data_t)*(NROOTS + 1));
+  data_t* omega = malloc(sizeof(data_t)*(NROOTS + 1));
+  data_t* root = malloc(sizeof(data_t)*NROOTS);
+  data_t* reg = malloc(sizeof(data_t)*(NROOTS + 1));
+  data_t* loc = malloc(sizeof(data_t)*NROOTS);
   int syn_error, count;
 
   /* form the syndromes; i.e., evaluate data(x) at roots of g(x) */
@@ -295,4 +300,14 @@
       eras_pos[i] = loc[i];
   }
   retval = count;
+
+  free(lambda);
+  free(s);
+  free(b);
+  free(t);
+  free(omega);
+  free(root);
+  free(reg);
+  free(loc);
+
 }
